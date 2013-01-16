@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
+
+set -e
+
+LIGHT_TARBALL=https://s3-eu-west-1.amazonaws.com/midgard-heroku/lighttpd.tar.gz
+TARGET_DIR=$HOME
+BUILD_DIR=$1
+CACHE_DIR=$2
+
+cd $BUILD_DIR
+
+echo "-----> Installing lighttpd web serwer"
+curl --silent --max-time 60 --location "$LIGHT_TARBALL" | tar xz
